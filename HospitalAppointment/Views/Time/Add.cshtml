@@ -1,0 +1,31 @@
+﻿
+@model HospitalAppointment.Models.Domain.Time
+
+<form class="w-40" asp-action="Add" method="post">
+    <h2 class="pb-10">Add Time</h2>
+    <div class="input-container">
+        <label asp-for="AvailableTime" class="w-40">Available Time</label>
+        <input type="text" class="input" asp-for="AvailableTime">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="AvailableTime"> </span>
+    </div>
+    <div class="input-container">
+        <label asp-for="TimeType" class="w-40">Time Type</label>
+        <input type="text" class="input" asp-for="TimeType">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="TimeType"> </span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+            <div class="alert mb-1">
+            @TempData["msg"]
+            </div>
+    }
+
+    <div class="input-container">
+        <button class="btn btn-default" type="submit">Save</button>
+    </div>
+</form>
